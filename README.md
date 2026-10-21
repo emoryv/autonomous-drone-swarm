@@ -31,6 +31,12 @@ The gesture classifier is part of the swarm project: hand landmarks provide inpu
 
 My work included flight testing alongside software development. This write-up does not assert a measured classification accuracy, flight-success rate, or competition placement because those results are not included in the published project summary.
 
+## Public team source
+
+[CUAD GestureDrone](https://github.com/CUAutoDrone/GestureDrone) contains the team's gesture-data collection, training, inference, and ROS integration code. See the [gesture pipeline files](https://github.com/CUAutoDrone/GestureDrone/tree/main/GestureData%28IARC%29) and [ROS integration](https://github.com/CUAutoDrone/GestureDrone/tree/main/Gesture_to_flight%28ROS%29).
+
+This is shared team implementation context. File-level authorship is recorded in the upstream history; this link does not attribute every component to me. The public repository includes multiple iterations, so its documentation and code may represent different development stages.
+
 ## Repository scope
 
 This is a portfolio case study of collaborative Cornell CUAD work. It does not contain the original team source code, flight data, or model weights. The four-drone system is a team project; the contributions above describe my role.
