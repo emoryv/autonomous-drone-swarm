@@ -1,46 +1,36 @@
-# Autonomous Drone Swarm
+# Autonomous Drone Swarm — Case Study
 
 **Cornell Autonomous Drone Project Team (CUAD) · Software Developer · September 2025–present**
 
-A case study of my software contributions to a four-drone autonomous swarm competing in the International Aerial Robotics Competition.
+Software contributions to a four-drone autonomous swarm competing in the International Aerial Robotics Competition.
 
 ## My contributions
 
-- Developed and flight-tested **ROS 2 perception, planning, and multi-agent coordination software**.
-- Integrated visual odometry, camera-based obstacle avoidance, and **D* Lite replanning on a Raspberry Pi 5** for GPS-denied flight.
-- Trained and deployed a **PyTorch gesture classifier** using MediaPipe hand landmarks and temporal smoothing.
-- Connected gesture recognition to swarm arming, takeoff, and landing commands through **MAVROS**.
+- Developed and flight-tested ROS 2 perception, planning, and multi-agent coordination software.
+- Integrated visual odometry, camera-based obstacle avoidance, and D* Lite replanning on a Raspberry Pi 5 for GPS-denied flight.
+- Trained and deployed a PyTorch gesture classifier using MediaPipe hand landmarks and temporal smoothing.
+- Connected recognized gestures to swarm arming, takeoff, and landing commands through MAVROS.
 
-## System components
+## Gesture-control workflow
 
-| Area | Project approach |
-| --- | --- |
-| Navigation without GPS | Visual odometry |
-| Obstacle awareness | Camera-based obstacle avoidance |
-| Replanning | D* Lite |
-| Onboard compute | Raspberry Pi 5 |
-| Autonomy software | ROS 2 perception, planning, and coordination |
-| Operator interaction | MediaPipe landmarks, PyTorch classification, temporal smoothing |
-| Flight-command integration | MAVROS |
+```mermaid
+flowchart TD
+    A["MediaPipe hand landmarks"] --> B["PyTorch gesture classifier"]
+    B --> C["Temporal smoothing"]
+    C --> D["MAVROS flight commands"]
+```
 
-## Gesture-control subsystem
+The subsystem connects visual classification to physical-system behavior. My role included model training, deployment, command integration, and flight testing.
 
-The gesture classifier is part of the swarm project: hand landmarks provide input to the classifier, temporal smoothing stabilizes its output, and the resulting recognized gestures are translated into flight commands through MAVROS. This work connects an ML model to the behavior of a physical multi-drone system.
+## Public team code
 
-## Validation
+[CUAD GestureDrone](https://github.com/CUAutoDrone/GestureDrone) contains the team's gesture collection, training, inference, and ROS integration work:
 
-My work included flight testing alongside software development. This write-up does not assert a measured classification accuracy, flight-success rate, or competition placement because those results are not included in the published project summary.
+- [Gesture pipeline](https://github.com/CUAutoDrone/GestureDrone/tree/main/GestureData%28IARC%29)
+- [ROS integration](https://github.com/CUAutoDrone/GestureDrone/tree/main/Gesture_to_flight%28ROS%29)
 
-## Public team source
+**Source and attribution:** This case study describes my contribution to a team system. The linked repository contains multiple development iterations and preserves its authors' commit history; it provides team implementation context rather than file-level attribution to me.
 
-[CUAD GestureDrone](https://github.com/CUAutoDrone/GestureDrone) contains the team's gesture-data collection, training, inference, and ROS integration code. See the [gesture pipeline files](https://github.com/CUAutoDrone/GestureDrone/tree/main/GestureData%28IARC%29) and [ROS integration](https://github.com/CUAutoDrone/GestureDrone/tree/main/Gesture_to_flight%28ROS%29).
-
-This is shared team implementation context. File-level authorship is recorded in the upstream history; this link does not attribute every component to me. The public repository includes multiple iterations, so its documentation and code may represent different development stages.
-
-## Repository scope
-
-This is a portfolio case study of collaborative Cornell CUAD work. It does not contain the original team source code, flight data, or model weights. The four-drone system is a team project; the contributions above describe my role.
-
-**Technologies:** Python, ROS 2, Raspberry Pi 5, D* Lite, visual odometry, PyTorch, MediaPipe, MAVROS
+**Technologies:** Python, ROS 2, Raspberry Pi 5, D* Lite, PyTorch, MediaPipe, MAVROS
 
 [Back to my profile](https://github.com/emoryv)
